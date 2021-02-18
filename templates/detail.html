@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Search Article</title>
+        
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </head>
+    
+    <body>
+     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="{{ url_for('Home')}}">Research Articles Repository</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="{{ url_for('Home')}}">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+      <a class="nav-link" href="{{ url_for('Info')}}">Info</a>
+      </li>
+    
+    </ul>
+  </div>
+</nav>
+    
+     <!--container start -->
+    <div class="container">
+    
+ 
+     <br/>
+    <form class="form" action="{{ url_for('searchtitle')}}" method="post">
+ 
+
+ 
+  <div class="form-row">
+    <div class="form-group col-md-11">
+     <input type="text" class="form-control" name="queryterm" id="queryterm">
+    </div>
+    <div class="form-group col-md-1">
+    <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+  </div>
+  
+ 
+</form>
+   </div>
+   <!-- container end -->
+ 
+ <div class="container">
+   <div class="row">
+   <p>{{aid}}</p>
+
+     
+      <div class="card bg-light border-success mb-1">    
+  
+    <div class="card-body">
+      <h5 class="card-title">{{ article.title }}</h5>
+      
+       <p class="card-text">
+                  <b>Abstract:</b><br>
+                 {%- if article.abstract -%} {{article.abstract | safe }} 
+                 {% endif %}
+       </p>
+      
+    </div>
+     
+  
+  </div>
+
+  </div>   
+   
+   </div>
+   
+<br/>
+    <div class="container">
+    <div class="row bg-dark text-white">
+    <h5 class="mt-1 mb-1 pl-1">Recommending Similar Articles</h5>
+    </div>
+    <br/>
+    <div class="card-deck">
+        {% for article_row in articles | batch(2) %}  
+    <div class="row">    
+     {% for article in article_row %}  
+     
+  <div class="card bg-light border-info mb-1">
+   
+    <div class="card-body">
+      <h5 class="card-title">{{ article.title }}</h5>
+      <p class="card-text">
+                 {%- if article.abstract -%} {{article.abstract | safe | truncate(200, True)}} 
+                 {% endif %}
+       </p>
+       <p class="card-text"><small class="text-muted"><a href="{{ url_for('detail',articleid=article.id) }}">Detail</a></small></p>
+     
+    </div>   
+  </div>
+  <!--card div end-->
+  {% endfor %}
+  
+</div>
+   {% endfor %}
+</div>
+ </div>
+   </div> 
+    
+    
+    
+
+    
+  
+</body>
+    
+    </html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Search Article</title>
+        
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </head>
+    
+    <body>
+     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="{{ url_for('Home')}}">Research Articles Repository</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="{{ url_for('Home')}}">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('Info')}}">Info</a>
+      </li>
+    
+    </ul>
+  </div>
+</nav>
+<br/>
+    <!--container start -->
+    <div class="container">
+     <div class="card bg-light border-info mb-1">
+   
+    <div class="card-body">
+      <h5 class="card-title">Project Highlight</h5>
+      <p class="card-text">
+             Dataset is obtained from <a href="https://datahack.analyticsvidhya.com/contest/janatahack-independence-day-2020-ml-hackathon/#ProblemStatement" target="_blank">Analytics Vidhya</a>
+               where is used for multilabel classification competition for Topic Modeling for Research Articles. 
+               The purpose is finding relevant articles as easy as possible from large online archives of scientific articles. Tagging or topic modelling provides a way to give token of identification to research articles which facilitates recommendation and search process.  
+       </p>
+       <h5 class="card-title">What unique about this search engine? </h5>
+       <p class="card-text">Traditionally, we use comparsion/matching of keywords entered by users against tables in database. 
+       The challenge with traiditional search is that the more keywords have to be searched in each and every tables in database, 
+       the more complex scripting will become and it is a nighmare for maintenace and performance optimization. Moreover, 
+       the approach ignores the intent of message, the meanings of words under different context. 
+       There is no mathematical ranking order for 
+       return search output. Programmer either have to sort the output by alphabetcial or numerical or by date.
+        For example, examine below two sentences.</p>
+       <ul>
+       <li>A thief robbed the bank last night.</li> 
+       <li>He went to bank to see sunset.</li> 
+       </ul>
+      <p class="card-text"> There is a common word 'bank'; however, it has different meaning under different context. 
+      To overcome this problem as well as ranking, there is a state-of-the-art model called Bidirectional
+       Encoder Representations from Transformers <a href="https://huggingface.co/transformers/model_doc/bert.html" 
+       target="blank">(BERT)</a>, a latest model widely used in natural language processing 
+       developed by Google researchers. BERT is a pre-training model trianed on 
+       Books Corpus with 800M words and English Wikipedia with 2,500M words. This greatly helps to reduce training time 
+       on model building while maintaining high performance on document classification, question and answering, 
+       text generation, etc. The recommendation search engine is used BERT for query search and recommendation on similar articles.
+       </p>
+     
+    </div>   
+  </div>
+  <!--card div end-->
+ 
+   
+   </div>
+   <!-- container end -->
+             
+
+ 
+</body>
+    
+    </html>
