@@ -1,4 +1,4 @@
-https://download.pytorch.org/whl/cpu/torch-1.0.1.post2-cp37-cp37m-linux_x86_64.whl
+http://download.pytorch.org/whl/cpu/torch-0.4.1-cp36-cp36m-linux_x86_64.whl
 sentence-transformers==0.4.1.2
 certifi==2020.6.20
 chardet==3.0.4
