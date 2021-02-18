@@ -1,5 +1,6 @@
 http://download.pytorch.org/whl/cpu/torch-0.4.1-cp36-cp36m-linux_x86_64.whl
 sentence-transformers==0.4.1.2
+transformers==2.9.0
 pandas==1.1.5
 certifi==2020.6.20
 chardet==3.0.4
