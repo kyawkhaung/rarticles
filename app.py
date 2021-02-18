@@ -40,7 +40,6 @@ sbert_model = SentenceTransformer('bert-base-nli-mean-tokens')
 
 embeddings_recommendation = cosine_similarity(embeddings_title_search)
 
-version=pd.__version__
 
 def get_articles():
     list_projects = []
@@ -54,7 +53,7 @@ def get_articles():
                         
 @app.route('/',methods=['GET'])
 def Home():
-    return render_template('index.html', version=version, articles = get_articles())
+    return render_template('index.html', articles = get_articles())
 
 @app.route('/info',methods=['GET'])
 def Info():
