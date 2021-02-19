@@ -7,7 +7,7 @@ import pandas as pd
 from models.article import ResearchArticle
 #from pyrebase import pyrebase
 #import pyrebase
-
+#https://github.com/horizons-ml/heroku-bert-deployment
 
 #import transformers
 import torch
@@ -18,8 +18,8 @@ from sklearn.metrics.pairwise import cosine_similarity
 app = Flask(__name__)
 
 
-csv_url = 'https://firebasestorage.googleapis.com/v0/b/researcharticle-c8bb9.appspot.com/o/raw_train.csv?alt=media&token=2d22ff09-2da9-4e17-9db6-5bf2caf92301'
-npy_url = 'https://firebasestorage.googleapis.com/v0/b/researcharticle-c8bb9.appspot.com/o/embeddings_title_search.npy?alt=media&token=aa00ac45-a7e1-4c6f-a812-c7e21d8488c0'
+csv_url = 'https://firebasestorage.googleapis.com/v0/b/articlesengine-ab015.appspot.com/o/raw_train.csv?alt=media&token=5a7b8ad6-15a6-4d85-af6e-65c7d6802d5b'
+npy_url = 'https://firebasestorage.googleapis.com/v0/b/articlesengine-ab015.appspot.com/o/embeddings_title_search.npy?alt=media&token=da2f1e90-cb05-45a4-8418-5115e1801bb0'
 
 #df = response.content
 df = pd.read_csv(csv_url)
@@ -144,4 +144,4 @@ def detail(articleid):
 
 if __name__=="__main__":
     app.run(debug=True)
-    
+
